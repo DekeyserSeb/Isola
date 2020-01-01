@@ -19,12 +19,12 @@ public class PlayerMove : TacticsMove //ATTENTION ICI C'EST pas MONOBEHAVIOUR
     {
         if (!moving)
         {
-            //FindSelectablesTilesDFS();
+            FindSelectablesTilesDFS();
             CheckMouse();
         }
         else
         {
-            //Move();
+            Move();
         }
     }
 
@@ -47,8 +47,8 @@ public class PlayerMove : TacticsMove //ATTENTION ICI C'EST pas MONOBEHAVIOUR
                         //BeamSearchMove(goal);
                         //OptimalSearchMove(goal);
                         //OptimalSearchBBMove(goal);
-                        OptimalSearchBBAMove(goal);
-                        //MoveToTile(t);
+                        //OptimalSearchBBAMove(goal);
+                        MoveToTile(goal);
                     }
                 }
             }

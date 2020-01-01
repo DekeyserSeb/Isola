@@ -19,6 +19,8 @@ public class Tile : MonoBehaviour //Contient toutes les informations sur les til
     public Tile parent = null;
     public int distance = 0; //provient pas du BFS, elle donneras la distance entre chaque tile car on ne peut bouger qu'avec un certain nombres de step
     public int cost = 1;
+    public int x;
+    public int y;
 
 
 
@@ -84,6 +86,10 @@ public class Tile : MonoBehaviour //Contient toutes les informations sur les til
         CheckTile(-Vector3.forward, jumpHeight);
         CheckTile(Vector3.right, jumpHeight);
         CheckTile(-Vector3.right, jumpHeight);
+        CheckTile(Vector3.right + Vector3.forward, jumpHeight);
+        CheckTile(-Vector3.right + Vector3.forward, jumpHeight);
+        CheckTile(Vector3.right - Vector3.forward, jumpHeight);
+        CheckTile(-Vector3.right - Vector3.forward, jumpHeight);
     }
 
     public void CheckTile(Vector3 direction, float jumpHeight)

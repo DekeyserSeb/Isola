@@ -13,23 +13,25 @@ public class Tile : MonoBehaviour //Contient toutes les informations sur les til
     public bool inPath = false;
     public bool inPathFromStart = false;
     public bool inPathFromGoal = false;
+    public bool toDestroy = false;
     public bool explode;
 
     public List<Tile> adjacentList = new List<Tile>();
     public Tile parent = null;
 
-    public float explosionForce = 500f;
+    public float explosionForce = 50f;
     public float explosionRadius = 4f;
     public float explosionUpward = 0.4f;
     public float cubeSize = 0.15f;
     public int cubeInRows = 5;
 
-    public int distance = 0; 
+    public int distance = 0;
     public int cost = 1;
 
     // Start is called before the first frame update
     void Start()
     {
+        explosionForce = 30;
         cubeInRows = 4;
     }
 
@@ -60,6 +62,10 @@ public class Tile : MonoBehaviour //Contient toutes les informations sur les til
         {
             GetComponent<Renderer>().material.color = Color.yellow;
         }
+        else if (toDestroy)
+        {
+            GetComponent<Renderer>().material.color = Color.grey;
+        }
         else
         {
             GetComponent<Renderer>().material.color = Color.white;
@@ -67,6 +73,7 @@ public class Tile : MonoBehaviour //Contient toutes les informations sur les til
         if (explode)
         {
             explosion();
+            
         }
     }
 
@@ -81,14 +88,14 @@ public class Tile : MonoBehaviour //Contient toutes les informations sur les til
             {
                 for (int z = 0; z < cubeInRows; z++)
                 {
-                    createPiece(x,y,z);
+                    createPiece(x, y, z);
                 }
             }
         }
 
         //get explosiont position
         Vector3 explosionPos = this.transform.position;
-        
+
         //get Collider in that position and radius
         Collider[] colliders = Physics.OverlapSphere(explosionPos, explosionRadius);
 
@@ -100,14 +107,16 @@ public class Tile : MonoBehaviour //Contient toutes les informations sur les til
             {
                 rb.AddExplosionForce(explosionForce, this.transform.position, explosionRadius, explosionUpward);
             }
-            
+
         }
+
+        TurnManager.EndTurn();
     }
 
     void createPiece(int x, int y, int z)
     {
         float cubesPivotDistance = cubeSize * cubeInRows / 2;
-        Vector3 CubePivot = new Vector3(cubesPivotDistance,cubesPivotDistance,cubesPivotDistance);
+        Vector3 CubePivot = new Vector3(cubesPivotDistance, cubesPivotDistance, cubesPivotDistance);
 
         //Create piece
         GameObject piece;
@@ -115,7 +124,7 @@ public class Tile : MonoBehaviour //Contient toutes les informations sur les til
 
         //Set piece position and scale
         piece.transform.position = this.transform.position + new Vector3(cubeSize * x, cubeSize * y, cubeSize * z) - CubePivot;
-        piece.transform.localScale = new Vector3(cubeSize,cubeSize,cubeSize);
+        piece.transform.localScale = new Vector3(cubeSize, cubeSize, cubeSize);
 
         //add rigidbody and mass
         piece.AddComponent<Rigidbody>();
@@ -170,3 +179,4 @@ public class Tile : MonoBehaviour //Contient toutes les informations sur les til
         }
     }
 }
+

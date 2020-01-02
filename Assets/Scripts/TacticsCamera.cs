@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class TacticsCamera : MonoBehaviour
 {
+    void Start()
+    {
+        transform.Rotate(Vector3.up, -90, Space.Self);
+        transform.Rotate(Vector3.up, -90, Space.Self);
+        transform.Rotate(Vector3.left, -55, Space.Self);
+    }
     void Update()
     {
         if (Input.GetKeyDown("right"))
@@ -13,6 +19,10 @@ public class TacticsCamera : MonoBehaviour
         if (Input.GetKeyDown("left"))
         {
             transform.Rotate(Vector3.up, 90, Space.Self);
+        }
+        if (Input.GetKeyDown("up"))
+        {
+            transform.Rotate(Vector3.left, -55, Space.Self);
         }
     }
     public void RotateLeft()

@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class PlayerMove : TacticsMove //ATTENTION ICI C'EST pas MONOBEHAVIOUR
 {
+    public bool finishMove;
+    public GameObject[] tileToDestroy;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,15 +18,32 @@ public class PlayerMove : TacticsMove //ATTENTION ICI C'EST pas MONOBEHAVIOUR
     // Update is called once per frame
     void Update()
     {
-        if (!moving)
+        if (!turn)
+        {
+            return;
+        }
+
+        if (endExplosion)// A CHANGER
+        {
+            CheckMouse();
+            return;
+        }
+
+        if (!moving && endExplosion == false)
         {
             FindSelectablesTilesDFS();
             CheckMouse();
+            if (finishMove == true)
+            {
+                finishMove = false;
+            }
         }
         else
         {
             Move();
+            
         }
+
     }
 
     private void CheckMouse()
@@ -47,6 +67,17 @@ public class PlayerMove : TacticsMove //ATTENTION ICI C'EST pas MONOBEHAVIOUR
                         //OptimalSearchBBMove(goal);
                         //OptimalSearchBBAMove(goal);
                         MoveToTile(goal);
+                    } else if (goal.toDestroy)
+                    {
+                        GameObject[] tileToDestroy = GameObject.FindGameObjectsWithTag("Tile");
+                        foreach (GameObject tile in tileToDestroy)
+                        {
+                            tile.GetComponent<Tile>().toDestroy = false;
+                        }
+
+                        endExplosion = false;
+                        goal.explode = true;
+
                     }
                 }
             }

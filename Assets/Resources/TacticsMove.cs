@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class TacticsMove : MonoBehaviour
 {
+    public bool turn = false;
+    public bool endExplosion = false;
     List<Tile> selectableTiles = new List<Tile>(); //Liste des tuiles
     GameObject[] tiles;
 
     Stack<Tile> path = new Stack<Tile>(); //Chemin
     List<Tile[]> processBBA = new List<Tile[]>();
     Tile currentTile;
+    Tile previousTile;
     Tile targetTile;
 
     public bool moving = false;
@@ -31,7 +34,7 @@ public class TacticsMove : MonoBehaviour
 
         halfHeight = GetComponent<Collider>().bounds.extents.y;
 
-
+        TurnManager.AddUnit(this);
 
     }
 
@@ -81,6 +84,7 @@ public class TacticsMove : MonoBehaviour
 
         process.Enqueue(currentTile);
         currentTile.visited = true;
+        previousTile = currentTile;
         //currentTile.Parent = ?? leave as null
 
         // 2 le while n'est pas vide
@@ -107,6 +111,7 @@ public class TacticsMove : MonoBehaviour
                 }
             }
         }
+        currentTile.selectable = false;
     }
 
     public void DFSMove(Tile goal)
@@ -786,6 +791,14 @@ public class TacticsMove : MonoBehaviour
         {
             RemoveSelectableTiles();
             moving = false;
+            //previousTile.explode = true;
+            //TurnManager.EndTurn();
+            GameObject[] tileToDestroy = GameObject.FindGameObjectsWithTag("Tile");
+            foreach (GameObject tile in tileToDestroy)
+            {
+                tile.GetComponent<Tile>().toDestroy = true;
+            }
+            endExplosion = true;
         }
 
     }
@@ -814,6 +827,16 @@ public class TacticsMove : MonoBehaviour
         }
 
         selectableTiles.Clear();
+    }
+
+    public void BeginTurn()
+    {
+        turn = true;
+    }
+
+    public void EndTurn()
+    {
+        turn = false;
     }
 }
 

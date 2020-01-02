@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,30 +7,30 @@ public class Tile : MonoBehaviour //Contient toutes les informations sur les til
 {
     public bool walkable = true;
     public bool current = false;
+    public bool visited = false;
     public bool target = false;
     public bool selectable = false;
     public bool inPath = false;
     public bool inPathFromStart = false;
     public bool inPathFromGoal = false;
+    public bool explode;
 
     public List<Tile> adjacentList = new List<Tile>();
-
-    //BFS (breath first search)
-    public bool visited = false;
     public Tile parent = null;
-    public int distance = 0; //provient pas du BFS, elle donneras la distance entre chaque tile car on ne peut bouger qu'avec un certain nombres de step
+
+    public float explosionForce = 500f;
+    public float explosionRadius = 4f;
+    public float explosionUpward = 0.4f;
+    public float cubeSize = 0.15f;
+    public int cubeInRows = 5;
+
+    public int distance = 0; 
     public int cost = 1;
-    public int x;
-    public int y;
-
-
-
-
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        cubeInRows = 4;
     }
 
     // Update is called once per frame
@@ -63,6 +64,62 @@ public class Tile : MonoBehaviour //Contient toutes les informations sur les til
         {
             GetComponent<Renderer>().material.color = Color.white;
         }
+        if (explode)
+        {
+            explosion();
+        }
+    }
+
+    public void explosion()
+    {
+        this.gameObject.SetActive(false);
+
+        //loop 3 times to create 5x5x5 piece in x, y, z axis
+        for (int x = 0; x < cubeInRows; x++)
+        {
+            for (int y = 0; y < cubeInRows; y++)
+            {
+                for (int z = 0; z < cubeInRows; z++)
+                {
+                    createPiece(x,y,z);
+                }
+            }
+        }
+
+        //get explosiont position
+        Vector3 explosionPos = this.transform.position;
+        
+        //get Collider in that position and radius
+        Collider[] colliders = Physics.OverlapSphere(explosionPos, explosionRadius);
+
+        //Add explosionForce foreach Collider
+        foreach (Collider hit in colliders)
+        {
+            Rigidbody rb = hit.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.AddExplosionForce(explosionForce, this.transform.position, explosionRadius, explosionUpward);
+            }
+            
+        }
+    }
+
+    void createPiece(int x, int y, int z)
+    {
+        float cubesPivotDistance = cubeSize * cubeInRows / 2;
+        Vector3 CubePivot = new Vector3(cubesPivotDistance,cubesPivotDistance,cubesPivotDistance);
+
+        //Create piece
+        GameObject piece;
+        piece = GameObject.CreatePrimitive(PrimitiveType.Cube);
+
+        //Set piece position and scale
+        piece.transform.position = this.transform.position + new Vector3(cubeSize * x, cubeSize * y, cubeSize * z) - CubePivot;
+        piece.transform.localScale = new Vector3(cubeSize,cubeSize,cubeSize);
+
+        //add rigidbody and mass
+        piece.AddComponent<Rigidbody>();
+        piece.GetComponent<Rigidbody>().mass = 0.2f;
     }
 
     public void Reset()

@@ -10,8 +10,6 @@ public class PlayerMove : TacticsMove //ATTENTION ICI C'EST pas MONOBEHAVIOUR
     {
         Init();
         FindSelectablesTilesDFS();
-
-
     }
 
     // Update is called once per frame

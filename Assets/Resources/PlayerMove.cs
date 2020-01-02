@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerMove : TacticsMove //ATTENTION ICI C'EST pas MONOBEHAVIOUR
 {
-    public bool finishMove;
+
     public GameObject[] tileToDestroy;
 
     // Start is called before the first frame update
@@ -33,10 +33,7 @@ public class PlayerMove : TacticsMove //ATTENTION ICI C'EST pas MONOBEHAVIOUR
         {
             FindSelectablesTilesDFS();
             CheckMouse();
-            if (finishMove == true)
-            {
-                finishMove = false;
-            }
+
         }
         else
         {
@@ -67,7 +64,7 @@ public class PlayerMove : TacticsMove //ATTENTION ICI C'EST pas MONOBEHAVIOUR
                         //OptimalSearchBBMove(goal);
                         //OptimalSearchBBAMove(goal);
                         MoveToTile(goal);
-                    } else if (goal.toDestroy)
+                    } else if (goal.toDestroy && !CurrentTile(goal))
                     {
                         GameObject[] tileToDestroy = GameObject.FindGameObjectsWithTag("Tile");
                         foreach (GameObject tile in tileToDestroy)
@@ -82,5 +79,26 @@ public class PlayerMove : TacticsMove //ATTENTION ICI C'EST pas MONOBEHAVIOUR
                 }
             }
         }
+    }
+
+    private bool CurrentTile(Tile goal)
+    {
+        List<Tile> player = TurnManager.Instance.getPositionUnitsTilePlayer();
+        List<Tile> NPC = TurnManager.Instance.getPositionUnitsTileNPC();
+        foreach (Tile currentTilePlayer in player)
+        {
+            if (goal == currentTilePlayer)
+            {
+                return true;
+            }
+        }
+        foreach (Tile currentTileNPC in NPC)
+        {
+            if (goal == currentTileNPC)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

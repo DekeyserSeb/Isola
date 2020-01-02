@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TacticsMove : MonoBehaviour
 {
+
     public bool turn = false;
     public bool endExplosion = false;
     List<Tile> selectableTiles = new List<Tile>(); //Liste des tuiles
@@ -43,6 +44,11 @@ public class TacticsMove : MonoBehaviour
     {
         currentTile = GetTargetTile(gameObject);
         currentTile.current = true;
+    }
+    public Tile GetCurrentTileWithReturn()
+
+    {
+        return GetTargetTile(gameObject);
     }
 
     public Tile GetTargetTile(GameObject target)

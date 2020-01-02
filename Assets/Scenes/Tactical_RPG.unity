@@ -233,6 +233,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -356,6 +357,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -479,6 +481,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -602,6 +605,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -725,6 +729,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -848,6 +853,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -1008,6 +1014,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -1131,6 +1138,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -1254,6 +1262,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -1377,6 +1386,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -1500,6 +1510,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -1623,6 +1634,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -1746,6 +1758,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -1869,6 +1882,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -1992,6 +2006,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -2115,6 +2130,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -2238,6 +2254,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -2361,6 +2378,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -2575,6 +2593,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -2698,6 +2717,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -2821,6 +2841,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -2944,6 +2965,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -3067,6 +3089,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -3092,7 +3115,7 @@ GameObject:
   - component: {fileID: 881941432}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3124,11 +3147,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turn: 0
+  endExplosion: 0
   moving: 0
   move: 1
   jumpHeight: 2
   movespeed: 2
-  finishMove: 0
+  tileToDestroy: []
 --- !u!136 &881941433
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3339,6 +3363,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -3545,6 +3570,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -3668,6 +3694,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -3741,6 +3768,7 @@ GameObject:
   - component: {fileID: 1170470729}
   - component: {fileID: 1170470728}
   - component: {fileID: 1170470727}
+  - component: {fileID: 1170470732}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: NPC
@@ -3761,11 +3789,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turn: 0
+  endExplosion: 0
   moving: 0
   move: 1
   jumpHeight: 2
   movespeed: 2
-  finishMove: 0
+  tileToDestroy: []
 --- !u!136 &1170470728
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3840,6 +3869,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1170470732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170470726}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5e1d6ff91416641b120b4dc214c0d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turn: 0
+  endExplosion: 0
+  moving: 0
+  move: 5
+  jumpHeight: 2
+  movespeed: 2
 --- !u!1 &1171863528
 GameObject:
   m_ObjectHideFlags: 0
@@ -4019,6 +4066,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -4142,6 +4190,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -4265,6 +4314,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -4388,6 +4438,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -4511,6 +4562,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -4671,6 +4723,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -4794,6 +4847,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -4917,6 +4971,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -5040,6 +5095,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -5163,6 +5219,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -5286,6 +5343,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -5409,6 +5467,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -5532,6 +5591,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -5655,6 +5715,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -5778,6 +5839,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -5901,6 +5963,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -6024,6 +6087,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -6147,6 +6211,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -6307,6 +6372,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -6511,6 +6577,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -6671,6 +6738,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -6831,6 +6899,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}
@@ -6954,6 +7023,7 @@ MonoBehaviour:
   inPath: 0
   inPathFromStart: 0
   inPathFromGoal: 0
+  toDestroy: 0
   explode: 0
   adjacentList: []
   parent: {fileID: 0}

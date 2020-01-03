@@ -28,6 +28,11 @@ public class Tile : MonoBehaviour //Contient toutes les informations sur les til
     public int distance = 0;
     public int cost = 1;
 
+    //Algorithme A*
+    public float s = 0; // C + H = la somme de la valeur heuristique et du cout f
+    public float c = 0; // cost des parents de la tile en question g
+    public float h = 0; // heuristique (cout de la tile actuelle) h
+
     // Start is called before the first frame update
     void Start()
     {
@@ -142,23 +147,25 @@ public class Tile : MonoBehaviour //Contient toutes les informations sur les til
         visited = false;
         parent = null;
         distance = 0;
+        s = c = h = 0;
 
     }
 
-    public void FindNeighbors(float jumpHeight)
+    public void FindNeighbors(float jumpHeight, Tile target)
     {
         Reset();
-        CheckTile(Vector3.forward, jumpHeight);
-        CheckTile(-Vector3.forward, jumpHeight);
-        CheckTile(Vector3.right, jumpHeight);
-        CheckTile(-Vector3.right, jumpHeight);
-        CheckTile(Vector3.right + Vector3.forward, jumpHeight);
-        CheckTile(-Vector3.right + Vector3.forward, jumpHeight);
-        CheckTile(Vector3.right - Vector3.forward, jumpHeight);
-        CheckTile(-Vector3.right - Vector3.forward, jumpHeight);
+        CheckTile(Vector3.forward, jumpHeight, target);
+        CheckTile(-Vector3.forward, jumpHeight, target);
+        CheckTile(Vector3.right, jumpHeight, target);
+        CheckTile(-Vector3.right, jumpHeight, target);
+        CheckTile(Vector3.right + Vector3.forward, jumpHeight, target);
+        CheckTile(-Vector3.right + Vector3.forward, jumpHeight, target);
+        CheckTile(Vector3.right - Vector3.forward, jumpHeight, target);
+        CheckTile(-Vector3.right - Vector3.forward, jumpHeight, target);
     }
 
-    public void CheckTile(Vector3 direction, float jumpHeight)
+
+    public void CheckTile(Vector3 direction, float jumpHeight, Tile target)
     {
         Vector3 halfExtends = new Vector3(0.25f, (1 + jumpHeight) / 2.0f, 0.25f); //attention le milieu pour le jump
         Collider[] colliders = Physics.OverlapBox(transform.position + direction, halfExtends);
@@ -170,7 +177,7 @@ public class Tile : MonoBehaviour //Contient toutes les informations sur les til
             {
                 RaycastHit hit;
 
-                if (!Physics.Raycast(tile.transform.position, Vector3.up, out hit, 1))
+                if (!Physics.Raycast(tile.transform.position, Vector3.up, out hit, 1) || (item == target));
                 {
                     adjacentList.Add(tile);
 

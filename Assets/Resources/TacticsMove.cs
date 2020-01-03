@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TacticsMove : MonoBehaviour
+public class TacticsMove : MonoBehaviour // Ctrl + M + O pour tout fermer et Ctrl + M + L pour tout ouvrir
 {
 
     public bool turn = false;
@@ -27,6 +27,8 @@ public class TacticsMove : MonoBehaviour
 
     float halfHeight = 0;
 
+    public Tile actualTargetTile; // A*
+
 
     protected void Init()
  
@@ -45,6 +47,7 @@ public class TacticsMove : MonoBehaviour
         currentTile = GetTargetTile(gameObject);
         currentTile.current = true;
     }
+
     public Tile GetCurrentTileWithReturn()
 
     {
@@ -63,7 +66,7 @@ public class TacticsMove : MonoBehaviour
         return tile;
     }
 
-    public void GetListCaseAdjacent()
+    public void GetListCaseAdjacent(float jumpHeight, Tile target)
     {
         //tiles = GameObject.FindGameObjectsWithTag("tiles"); 
         //Si on changes la taille de la carte
@@ -72,14 +75,14 @@ public class TacticsMove : MonoBehaviour
         foreach (GameObject tile in tiles)
         {
             Tile t = tile.GetComponent<Tile>();
-            t.FindNeighbors(jumpHeight);
+            t.FindNeighbors(jumpHeight, target);
 
         }
     }
 
     public void FindSelectablesTilesDFS() //Breath First Search
     {
-        GetListCaseAdjacent(); 
+        GetListCaseAdjacent(jumpHeight, null); 
         GetCurrentTile();
 
         //DEBUT BFS
@@ -123,7 +126,7 @@ public class TacticsMove : MonoBehaviour
     public void DFSMove(Tile goal)
     {
         bool pathIsDone = false;
-        GetListCaseAdjacent();
+        GetListCaseAdjacent(jumpHeight, null);
         GetCurrentTile();
         Queue<Tile[]> process = new Queue<Tile[]>();
         Tile[] FirstPath = new Tile[1] {currentTile};
@@ -168,7 +171,7 @@ public class TacticsMove : MonoBehaviour
     public void BiDirectionnalMove(Tile goal)
     {
         bool pathIsDone = false;
-        GetListCaseAdjacent();
+        GetListCaseAdjacent(jumpHeight, null);
         GetCurrentTile();
         List<Tile[]> processStart = new List<Tile[]>();
         List<Tile[]> processGoal = new List<Tile[]>();
@@ -240,7 +243,7 @@ public class TacticsMove : MonoBehaviour
     public void GreedySearchMove(Tile goal)
     {
         bool pathIsDone = false;
-        GetListCaseAdjacent();
+        GetListCaseAdjacent(jumpHeight, null);
         GetCurrentTile();
         List<Tile[]> process = new List<Tile[]>();
         Tile[] FirstPath = new Tile[1] { currentTile };
@@ -286,7 +289,7 @@ public class TacticsMove : MonoBehaviour
     public void BeamSearchMove(Tile goal)
     {
         bool pathIsDone = false;
-        GetListCaseAdjacent();
+        GetListCaseAdjacent(jumpHeight, null);
         GetCurrentTile();
         List<Tile[]> process = new List<Tile[]>();
         Tile[] FirstPath = new Tile[1] { currentTile };
@@ -364,7 +367,7 @@ public class TacticsMove : MonoBehaviour
     public void OptimalSearchMove(Tile goal)
     {
         bool pathIsDone = false;
-        GetListCaseAdjacent();
+        GetListCaseAdjacent(jumpHeight, null);
         GetCurrentTile();
         List<Tile[]> process = new List<Tile[]>();
         Tile[] FirstPath = new Tile[1] { currentTile };
@@ -413,7 +416,7 @@ public class TacticsMove : MonoBehaviour
         int lastPathCost = 999999;
         bool firstPathIsDone = false;
         bool secondPathIsDone = false;
-        GetListCaseAdjacent();
+        GetListCaseAdjacent(jumpHeight, null);
         GetCurrentTile();
         List<Tile[]> process = new List<Tile[]>();
         Tile[] startPath = new Tile[1] { currentTile };
@@ -507,7 +510,7 @@ public class TacticsMove : MonoBehaviour
         int lastPathCost = 999999;
         bool firstPathIsDone = false;
         bool secondPathIsDone = false;
-        GetListCaseAdjacent();
+        GetListCaseAdjacent(jumpHeight, null);
         GetCurrentTile();
         Tile[] startPath = new Tile[1] { currentTile };
         Tile[] bestPath = null;
@@ -802,11 +805,37 @@ public class TacticsMove : MonoBehaviour
             GameObject[] tileToDestroy = GameObject.FindGameObjectsWithTag("Tile");
             foreach (GameObject tile in tileToDestroy)
             {
-                tile.GetComponent<Tile>().toDestroy = true;
+                if (!currentTile)
+                {
+                    tile.GetComponent<Tile>().toDestroy = true; //Ajouter ici le cassable, plus simple !!!
+                }
             }
             endExplosion = true;
         }
 
+    }
+
+    public bool CurrentTile(Tile goal)
+    {
+        List<Tile> player = TurnManager.Instance.getPositionUnitsTilePlayer();
+        List<Tile> NPC = TurnManager.Instance.getPositionUnitsTileNPC();
+        foreach (Tile currentTilePlayer in player)
+        {
+            if (goal == currentTilePlayer)
+            {
+                goal.current = true;
+                return true;
+            }
+        }
+        foreach (Tile currentTileNPC in NPC)
+        {
+            if (goal == currentTileNPC)
+            {
+                goal.current = true;
+                return true;
+            }
+        }
+        return false;
     }
 
     private void SetHorizontalVelocity()
@@ -833,6 +862,106 @@ public class TacticsMove : MonoBehaviour
         }
 
         selectableTiles.Clear();
+    }
+
+    public void FindPath(Tile target) //Calcule du chemin pour l'ordinateur
+    {
+        GetListCaseAdjacent(jumpHeight, target);
+        GetCurrentTile();
+
+        List<Tile> openList = new List<Tile>();
+        List<Tile> closedList = new List<Tile>();
+
+        openList.Add(currentTile);
+        //currentTile.parent
+        currentTile.h = Vector3.Distance(currentTile.transform.position, target.transform.position);
+        currentTile.s = currentTile.h;
+
+        while (openList.Count > 0)
+        {
+            Tile t = FindLowestS(openList); //Fonction qui va chercher la manière de se déplacer au prix le plus bas
+
+            closedList.Add(t);
+
+            if (t == target) // Our goal is reach
+            {
+                actualTargetTile = FindEndTile(t);
+                MoveToTile(actualTargetTile);
+                return;
+            }
+            foreach (Tile tile in t.adjacentList)
+            {
+                if (closedList.Contains(tile))
+                {
+                    //Do nothing, already processed
+                }
+                else if (openList.Contains(tile))
+                {
+                    float tempC = t.c + Vector3.Distance(tile.transform.position, t.transform.position);// On vérifie si c'est le plus rapide
+
+                    if (tempC < tile.c)
+                    {
+                        tile.parent = t;
+
+                        tile.c = tempC;
+                        tile.s = tile.c + tile.h;
+                    }
+                }
+                else
+                {
+                    tile.parent = t;
+
+                    tile.c = t.c + Vector3.Distance(tile.transform.position, t.transform.position);
+                    tile.h = Vector3.Distance(tile.transform.position, target.transform.position);
+                    tile.s = tile.h + tile.c;
+
+                    openList.Add(tile);
+
+                }
+            }
+        }
+
+        //todo - what do you do if there is no path to the target tile
+        Debug.Log("Path not found");
+    }
+
+    protected Tile FindLowestS(List<Tile> openList)
+    {
+        Tile lowest = openList[0];
+        foreach (Tile t in openList)
+        {
+            if (t.s < lowest.s)
+            {
+                lowest = t;
+            }
+        }
+        openList.Remove(lowest);
+        return lowest;
+    }
+
+    protected Tile FindEndTile(Tile t) // On va gerer le range du déplacement du robot aussi ici
+    {
+        Stack<Tile> tempPath = new Stack<Tile>();
+
+        Tile next = t.parent;
+        while (next != null)
+        {
+            tempPath.Push(next);
+            next = next.parent;
+        }
+
+        if (tempPath.Count <= move)
+        {
+            return t.parent;
+        }
+
+        Tile endTile = null;
+        for (int i = 0; i <= move; i++)
+        {
+            endTile = tempPath.Pop();
+        }
+
+        return endTile;
     }
 
     public void BeginTurn()

@@ -25,6 +25,7 @@ public class PlayerMove : TacticsMove //ATTENTION ICI C'EST pas MONOBEHAVIOUR
 
         if (endExplosion)// A CHANGER
         {
+            
             CheckMouse();
             return;
         }
@@ -79,26 +80,5 @@ public class PlayerMove : TacticsMove //ATTENTION ICI C'EST pas MONOBEHAVIOUR
                 }
             }
         }
-    }
-
-    private bool CurrentTile(Tile goal)
-    {
-        List<Tile> player = TurnManager.Instance.getPositionUnitsTilePlayer();
-        List<Tile> NPC = TurnManager.Instance.getPositionUnitsTileNPC();
-        foreach (Tile currentTilePlayer in player)
-        {
-            if (goal == currentTilePlayer)
-            {
-                return true;
-            }
-        }
-        foreach (Tile currentTileNPC in NPC)
-        {
-            if (goal == currentTileNPC)
-            {
-                return true;
-            }
-        }
-        return false;
     }
 }

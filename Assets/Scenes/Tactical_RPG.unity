@@ -244,6 +244,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &26062900
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,6 +371,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &61815120
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,6 +498,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &109665692
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,6 +625,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &170300625
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,6 +752,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &192609524
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,6 +879,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &193165310
 GameObject:
   m_ObjectHideFlags: 0
@@ -1025,6 +1043,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &222905086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,6 +1170,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &223167647
 GameObject:
   m_ObjectHideFlags: 0
@@ -1273,6 +1297,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &227134840
 GameObject:
   m_ObjectHideFlags: 0
@@ -1397,6 +1424,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &256903274
 GameObject:
   m_ObjectHideFlags: 0
@@ -1521,6 +1551,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &298309167
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,6 +1678,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &336598799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1769,6 +1805,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &339012906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1893,6 +1932,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &446635565
 GameObject:
   m_ObjectHideFlags: 0
@@ -2017,6 +2059,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &447739421
 GameObject:
   m_ObjectHideFlags: 0
@@ -2141,6 +2186,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &578663119
 GameObject:
   m_ObjectHideFlags: 0
@@ -2265,6 +2313,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &683050132
 GameObject:
   m_ObjectHideFlags: 0
@@ -2389,6 +2440,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2604,6 +2658,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &720502718
 GameObject:
   m_ObjectHideFlags: 0
@@ -2728,6 +2785,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &778444646
 GameObject:
   m_ObjectHideFlags: 0
@@ -2852,6 +2912,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &797364119
 GameObject:
   m_ObjectHideFlags: 0
@@ -2976,6 +3039,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &835437575
 GameObject:
   m_ObjectHideFlags: 0
@@ -3100,6 +3166,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &881941430
 GameObject:
   m_ObjectHideFlags: 0
@@ -3152,6 +3221,7 @@ MonoBehaviour:
   move: 1
   jumpHeight: 2
   movespeed: 2
+  actualTargetTile: {fileID: 0}
   tileToDestroy: []
 --- !u!136 &881941433
 CapsuleCollider:
@@ -3374,6 +3444,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3581,6 +3654,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &1105233615
 GameObject:
   m_ObjectHideFlags: 0
@@ -3705,6 +3781,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &1151079032
 GameObject:
   m_ObjectHideFlags: 0
@@ -3783,7 +3862,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170470726}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8419a83b0d693bc489c263893c4de7c7, type: 3}
   m_Name: 
@@ -3794,6 +3873,7 @@ MonoBehaviour:
   move: 1
   jumpHeight: 2
   movespeed: 2
+  actualTargetTile: {fileID: 0}
   tileToDestroy: []
 --- !u!136 &1170470728
 CapsuleCollider:
@@ -3876,7 +3956,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170470726}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f5e1d6ff91416641b120b4dc214c0d3, type: 3}
   m_Name: 
@@ -3884,9 +3964,10 @@ MonoBehaviour:
   turn: 0
   endExplosion: 0
   moving: 0
-  move: 5
+  move: 1
   jumpHeight: 2
   movespeed: 2
+  actualTargetTile: {fileID: 0}
 --- !u!1 &1171863528
 GameObject:
   m_ObjectHideFlags: 0
@@ -4077,6 +4158,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &1293948642
 GameObject:
   m_ObjectHideFlags: 0
@@ -4201,6 +4285,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &1358159700
 GameObject:
   m_ObjectHideFlags: 0
@@ -4325,6 +4412,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &1464452547
 GameObject:
   m_ObjectHideFlags: 0
@@ -4449,6 +4539,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &1483375839
 GameObject:
   m_ObjectHideFlags: 0
@@ -4573,6 +4666,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &1483785437
 GameObject:
   m_ObjectHideFlags: 0
@@ -4734,6 +4830,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &1556437039
 GameObject:
   m_ObjectHideFlags: 0
@@ -4858,6 +4957,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &1564656538
 GameObject:
   m_ObjectHideFlags: 0
@@ -4982,6 +5084,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &1571603255
 GameObject:
   m_ObjectHideFlags: 0
@@ -5106,6 +5211,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &1653587417
 GameObject:
   m_ObjectHideFlags: 0
@@ -5230,6 +5338,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &1666560726
 GameObject:
   m_ObjectHideFlags: 0
@@ -5354,6 +5465,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &1672194596
 GameObject:
   m_ObjectHideFlags: 0
@@ -5478,6 +5592,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &1699564946
 GameObject:
   m_ObjectHideFlags: 0
@@ -5602,6 +5719,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &1715478759
 GameObject:
   m_ObjectHideFlags: 0
@@ -5726,6 +5846,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &1732072651
 GameObject:
   m_ObjectHideFlags: 0
@@ -5850,6 +5973,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &1739704025
 GameObject:
   m_ObjectHideFlags: 0
@@ -5974,6 +6100,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &1742905644
 GameObject:
   m_ObjectHideFlags: 0
@@ -6098,6 +6227,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &1743807186
 GameObject:
   m_ObjectHideFlags: 0
@@ -6222,6 +6354,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &1868425979
 GameObject:
   m_ObjectHideFlags: 0
@@ -6383,6 +6518,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &1919557021
 GameObject:
   m_ObjectHideFlags: 0
@@ -6588,6 +6726,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &1973216403
 GameObject:
   m_ObjectHideFlags: 0
@@ -6749,6 +6890,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &2000568535
 GameObject:
   m_ObjectHideFlags: 0
@@ -6910,6 +7054,9 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0
 --- !u!1 &2029129442
 GameObject:
   m_ObjectHideFlags: 0
@@ -7034,3 +7181,6 @@ MonoBehaviour:
   cubeInRows: 5
   distance: 0
   cost: 1
+  s: 0
+  c: 0
+  h: 0

@@ -19,13 +19,13 @@ public class NPCMove : TacticsMove
         {
             return;
         }
-        if (endExplosion)// A CHANGER
+        if (endExplosion)// ICI on choisit l'endroit à exploser
         {
             endExplosion = false;
             chooseExplosion().explode = true;
             return;
         }
-        if (!moving) //Ajouter explosion ici
+        if (!moving) // ICI on recherche le chemin
         {
             FindBestTargetTile();
             CalculatePath();

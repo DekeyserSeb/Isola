@@ -55,7 +55,7 @@ public class PlayerMove : TacticsMove //ATTENTION ICI C'EST pas MONOBEHAVIOUR
                 if (hit.collider.tag == "Tile")
                 {
                     Tile goal = hit.collider.GetComponent<Tile>();
-                    if (goal.selectable)
+                    if (goal.selectable && !CurrentTile(goal))
                     {
                         //DFSMove(goal);
                         //BiDirectionnalMove(goal);

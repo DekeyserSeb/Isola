@@ -3848,6 +3848,7 @@ GameObject:
   - component: {fileID: 1170470728}
   - component: {fileID: 1170470727}
   - component: {fileID: 1170470732}
+  - component: {fileID: 1170470733}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: NPC
@@ -3862,7 +3863,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170470726}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8419a83b0d693bc489c263893c4de7c7, type: 3}
   m_Name: 
@@ -3956,9 +3957,28 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170470726}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f5e1d6ff91416641b120b4dc214c0d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turn: 0
+  endExplosion: 0
+  moving: 0
+  move: 1
+  jumpHeight: 2
+  movespeed: 2
+  actualTargetTile: {fileID: 0}
+--- !u!114 &1170470733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170470726}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b7f7f0ed0218740bbc223934fdc4c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   turn: 0

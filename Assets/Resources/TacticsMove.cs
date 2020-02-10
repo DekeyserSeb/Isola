@@ -11,6 +11,9 @@ public class TacticsMove : MonoBehaviour // Ctrl + M + O pour tout fermer et Ctr
     List<Tile> selectableTiles = new List<Tile>(); //Liste des tuiles
     GameObject[] tiles;
 
+    List<Tile> currentUnitPlayerTilesDFS = new List<Tile>();
+    List<Tile> currentUnitNPCTilesDFS = new List<Tile>();
+
     Stack<Tile> path = new Stack<Tile>(); //Chemin
     List<Tile[]> processBBA = new List<Tile[]>();
     Tile currentTile;
@@ -68,9 +71,6 @@ public class TacticsMove : MonoBehaviour // Ctrl + M + O pour tout fermer et Ctr
 
     public void GetListCaseAdjacent(float jumpHeight, Tile target)
     {
-        //tiles = GameObject.FindGameObjectsWithTag("tiles"); 
-        //Si on changes la taille de la carte
-
 
         foreach (GameObject tile in tiles)
         {
@@ -121,7 +121,41 @@ public class TacticsMove : MonoBehaviour // Ctrl + M + O pour tout fermer et Ctr
             }
         }
         currentTile.selectable = false;
+        RemoveCurrentFromSelectable(); // A DESACTIVER EN MODE 2 JOUEURS
     }
+
+    public void RemoveCurrentFromSelectable()
+    {
+        GameObject[] Player = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject currentTile in Player)
+        {
+            currentUnitPlayerTilesDFS.Add(currentTile.GetComponent<TacticsMove>().GetCurrentTileWithReturn());
+        }
+        GameObject[] NPC = GameObject.FindGameObjectsWithTag("NPC");
+        foreach (GameObject currentTile in Player)
+        {
+            currentUnitNPCTilesDFS.Add(currentTile.GetComponent<TacticsMove>().GetCurrentTileWithReturn());
+        }
+
+        GameObject[] allTile = GameObject.FindGameObjectsWithTag("Tile");
+
+
+        foreach (GameObject tiles in allTile)
+        {
+            foreach (Tile currentTilePlayer in currentUnitPlayerTilesDFS)
+            {
+                currentTilePlayer.selectable = false;
+                currentTilePlayer.current = true;
+            }
+            foreach (Tile currentTileNPC in currentUnitNPCTilesDFS)
+            {
+                currentTileNPC.selectable = false;
+                currentTileNPC.current = true;
+            }
+        }
+        currentUnitPlayerTilesDFS.Clear();
+        currentUnitNPCTilesDFS.Clear();
+    }//A AMELIORER
 
     public void DFSMove(Tile goal)
     {
